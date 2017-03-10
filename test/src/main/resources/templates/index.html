@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Test</title>
+    <link rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+    <script type="text/javascript" src="/static/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+    <script type="text/javascript" src="/static/app/bookings.controller.js" th:src="@{/app/bookings.controller.js}"></script>
+</head>
+<body ng-app="app" ng-controller="BookingsController as vm">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Hotel</th>
+            <th>Nights</th>
+            <th>Price/Night</th>
+            <th>Total Price</th>
+            <th style="width: 90px"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="booking in vm.bookings">
+            <td>{{booking.hotelName}}</td>
+            <td>{{booking.nbOfNights}}</td>
+            <td>{{booking.pricePerNight}}</td>
+            <td>{{booking.totalPrice}}</td>
+            <td>
+                <button class="btn btn-danger" ng-click="vm.deleteBooking(booking.id)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
